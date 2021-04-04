@@ -1,0 +1,20 @@
+def triangle(number_of_rows):
+    pascal = []
+    for x in range(number_of_rows):
+        blank = []
+        comp = x + 1
+        for y in range(comp):
+            if y == 0 or x == y:
+                blank.append(1)
+            else:
+                blank.append(pascal[x-1][y-1] + pascal[x-1][y])
+        pascal.append(blank)
+    for i in range(number_of_rows):
+        print("   "*(number_of_rows-i), end=" ")
+        for z in range(i+1):
+            print('{0:5}'.format(pascal[i][z]), end=" ")
+        print()
+
+
+number_of_rows = int(input("Введите количество строк в треугольнике Паскаля: "))
+triangle(number_of_rows)
